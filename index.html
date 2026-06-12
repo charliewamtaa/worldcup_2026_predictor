@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,58 +8,53 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#0D1B2A;color:#f0f0f0;min-height:100vh}
-
-/* ── Header ── */
+ 
 .header{background:linear-gradient(135deg,#002B57 0%,#003A70 50%,#002B57 100%);padding:0;border-bottom:3px solid #F5C518}
 .header-tricolor{display:flex;height:6px}
 .header-tricolor div{flex:1}
 .hca{background:#D80621}.hmx{background:#00843D}.hus{background:#0A4EA1}
-.header-inner{padding:20px 32px;display:flex;align-items:center;gap:20px}
+.header-inner{padding:20px 32px}
 .header-title{font-size:26px;font-weight:700;color:#F5C518;letter-spacing:1px}
 .header-sub{font-size:13px;color:#8A9BAA;margin-top:2px}
-
-/* ── Layout ── */
-.app{display:grid;grid-template-columns:320px 1fr;gap:0;min-height:calc(100vh - 95px)}
-
-/* ── Left panel ── */
+ 
+.app{display:grid;grid-template-columns:340px 1fr;gap:0;min-height:calc(100vh - 95px)}
+ 
 .left{background:#0D1B2A;border-right:1px solid #1a2d44;overflow-y:auto;height:calc(100vh - 95px);position:sticky;top:0}
 .left-header{padding:12px 16px;background:#002B57;border-bottom:1px solid #1a2d44;font-size:11px;font-weight:600;color:#8A9BAA;letter-spacing:.08em;text-transform:uppercase}
-.match-section{padding:6px 0}
 .section-hdr{padding:7px 16px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;cursor:pointer}
 .section-hdr.grp-A{background:#00843D}.section-hdr.grp-B{background:#B5121B}
 .section-hdr.grp-C{background:#003A70}.section-hdr.grp-D{background:#0A4EA1}
 .section-hdr.grp-E{background:#006B32}.section-hdr.grp-F{background:#8A0E18}
-.section-hdr.grp-G{background:#003A70}.section-hdr.grp-H{background:#00843D}
-.section-hdr.grp-I{background:#B5121B}.section-hdr.grp-J{background:#0A4EA1}
-.section-hdr.grp-K{background:#006B32}.section-hdr.grp-L{background:#8A0E18}
+.section-hdr.grp-G{background:#185FA5}.section-hdr.grp-H{background:#27500A}
+.section-hdr.grp-I{background:#993556}.section-hdr.grp-J{background:#3C3489}
+.section-hdr.grp-K{background:#854F0B}.section-hdr.grp-L{background:#791F1F}
 .section-hdr.ko-r32{background:#B5121B}.section-hdr.ko-r16{background:#003A70}
 .section-hdr.ko-qf{background:#006B32}.section-hdr.ko-sf{background:#D80621}
 .section-hdr.ko-3rd{background:#0A4EA1}.section-hdr.ko-final{background:#8A0E18}
 .section-hdr.gs-main{background:#002B57}
-
-.match-row{display:grid;grid-template-columns:44px 1fr auto auto auto 1fr;align-items:center;gap:0;padding:4px 8px;border-bottom:1px solid #111d2a;transition:background .1s}
+ 
+.match-row{display:grid;grid-template-columns:38px 32px 1fr auto auto auto 1fr;align-items:center;gap:0;padding:4px 6px;border-bottom:1px solid #111d2a;transition:background .1s}
 .match-row:hover{background:#111d2a}
+.match-num{font-size:8px;color:#2a3d54;text-align:center}
 .match-date{font-size:9px;color:#3D4E5E;text-align:center}
 .match-team{font-size:11px;color:#c8d0d9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .match-team.home{text-align:right;padding-right:6px}
 .match-team.away{text-align:left;padding-left:6px}
-.match-team.tbd{color:#3D4E5E;font-style:italic}
-.score-input{width:30px;height:24px;background:#1a2d44;border:1px solid #F5C518;color:#F5C518;text-align:center;font-size:13px;font-weight:700;border-radius:3px;outline:none;transition:all .15s}
+.match-team.tbd{color:#3D4E5E;font-style:italic;font-size:10px}
+.score-input{width:28px;height:24px;background:#1a2d44;border:1px solid #F5C518;color:#F5C518;text-align:center;font-size:13px;font-weight:700;border-radius:3px;outline:none;transition:all .15s}
 .score-input:focus{background:#2a3d54;border-color:#F5C518;box-shadow:0 0 0 2px rgba(245,197,24,.2)}
-.score-sep{font-size:10px;color:#3D4E5E;padding:0 2px}
-
-/* ── Right panel ── */
+.score-input[data-filled="true"]{background:#1a3a1a;border-color:#00843D;color:#7ec87e}
+.score-sep{font-size:10px;color:#3D4E5E;padding:0 1px}
+ 
 .right{overflow-y:auto;padding:24px}
-
-/* ── Tabs ── */
+ 
 .tabs{display:flex;gap:8px;margin-bottom:24px}
 .tab{padding:8px 20px;border-radius:6px;border:1px solid #1a2d44;background:transparent;color:#8A9BAA;cursor:pointer;font-size:13px;font-weight:500;transition:all .15s}
 .tab.active{background:#003A70;color:#fff;border-color:#0A4EA1}
 .tab:hover:not(.active){background:#111d2a;color:#c8d0d9}
 .tab-pane{display:none}.tab-pane.active{display:block}
-
-/* ── Standings ── */
-.standings-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+ 
+.standings-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:24px}
 .standing-table{background:#111d2a;border-radius:8px;overflow:hidden;border:1px solid #1a2d44}
 .st-header{padding:8px 12px;font-size:11px;font-weight:700;color:#fff;letter-spacing:.06em}
 .st-cols{display:grid;grid-template-columns:1fr 28px 28px 28px 28px 28px 28px 28px 36px;gap:0;padding:5px 12px;background:#0a1520;border-bottom:1px solid #1a2d44}
@@ -69,77 +65,99 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0D1B2A;color:#f0f0f
 .st-row:last-child{border-bottom:none}
 .st-row.rank1{border-left:3px solid #F5C518}
 .st-row.rank2{border-left:3px solid #8A9BAA}
+.st-row.rank3.bestthird{border-left:3px solid #00843D}
 .st-name{font-size:12px;color:#c8d0d9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .st-stat{font-size:11px;color:#8A9BAA;text-align:center}
 .st-pts{font-size:12px;color:#F5C518;font-weight:700;text-align:center}
 .st-note{padding:5px 12px;font-size:9px;color:#3D4E5E;font-style:italic;border-top:1px solid #1a2d44}
-
-/* ── Bracket ── */
+ 
+.third-place-table{background:#111d2a;border-radius:8px;overflow:hidden;border:1px solid #0A4EA1;margin-bottom:24px}
+.tp-header{padding:8px 12px;font-size:12px;font-weight:700;color:#fff;background:#0A4EA1;letter-spacing:.06em}
+.tp-cols{display:grid;grid-template-columns:30px 1fr 60px 40px 40px 40px;gap:0;padding:6px 12px;background:#0a1520;border-bottom:1px solid #1a2d44}
+.tp-col-hdr{font-size:9px;color:#3D4E5E;font-weight:600;letter-spacing:.05em;text-align:center}
+.tp-col-hdr:nth-child(2){text-align:left}
+.tp-row{display:grid;grid-template-columns:30px 1fr 60px 40px 40px 40px;gap:0;padding:6px 12px;border-bottom:1px solid #0a1520;align-items:center}
+.tp-row:last-child{border-bottom:none}
+.tp-row.qualified{background:rgba(0,132,61,.12);border-left:3px solid #00843D}
+.tp-rank{font-size:11px;color:#8A9BAA;text-align:center;font-weight:700}
+.tp-name{font-size:12px;color:#c8d0d9}
+.tp-group{font-size:10px;color:#8A9BAA;text-align:center}
+.tp-stat{font-size:11px;color:#8A9BAA;text-align:center}
+ 
 .bracket-wrap{overflow-x:auto;padding-bottom:16px}
-.bracket{display:flex;gap:0;align-items:flex-start;min-width:900px}
+.bracket{display:flex;gap:0;align-items:flex-start;min-width:1000px}
 .bracket-col{display:flex;flex-direction:column;flex-shrink:0}
-.bracket-col.r32{width:160px}
-.bracket-col.r16{width:140px}
-.bracket-col.qf{width:130px}
-.bracket-col.sf{width:130px}
-.bracket-col.center{width:180px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
+.bracket-col.r32{width:170px}
+.bracket-col.r16{width:150px}
+.bracket-col.qf{width:140px}
+.bracket-col.sf{width:140px}
+.bracket-col.center{width:190px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
 .bracket-col-label{text-align:center;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 4px;color:#fff;margin-bottom:8px;border-radius:4px}
 .bk-slot{display:flex;flex-direction:column;position:relative}
 .bk-match{background:#111d2a;border:1px solid #1a2d44;border-radius:4px;overflow:hidden;margin:2px 4px}
-.bk-team{padding:5px 8px;font-size:11px;color:#c8d0d9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-bottom:1px solid #0a1520;min-height:26px;display:flex;align-items:center}
+.bk-team{padding:5px 8px;font-size:10.5px;color:#c8d0d9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-bottom:1px solid #0a1520;min-height:26px;display:flex;align-items:center}
 .bk-team:last-child{border-bottom:none}
-.bk-team.tbd{color:#2a3d54;font-style:italic}
+.bk-team.tbd{color:#2a3d54;font-style:italic;font-size:9.5px}
 .bk-team.winner{color:#F5C518;font-weight:600;background:#1a2d44}
 .bk-spacer{flex:1;display:flex;align-items:center;justify-content:center;min-height:20px}
-.connector{width:100%;display:flex;align-items:center;justify-content:center}
-
-/* Final center */
-.final-box{background:#002B57;border:2px solid #D80621;border-radius:8px;padding:12px;width:170px;margin:0 auto}
+ 
+.final-box{background:#002B57;border:2px solid #D80621;border-radius:8px;padding:12px;width:180px;margin:0 auto}
 .final-label{text-align:center;font-size:10px;font-weight:700;color:#F5C518;letter-spacing:.1em;margin-bottom:4px}
 .final-date{text-align:center;font-size:9px;color:#8A9BAA;margin-bottom:10px}
 .final-team{background:#111d2a;border-radius:4px;padding:7px 10px;font-size:12px;font-weight:600;color:#c8d0d9;margin:3px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:30px;display:flex;align-items:center}
 .final-vs{text-align:center;font-size:10px;color:#3D4E5E;padding:2px 0}
-.champion-box{background:linear-gradient(135deg,#002B57,#003A70);border:2px solid #F5C518;border-radius:8px;padding:12px;width:170px;margin:8px auto 0;text-align:center}
+.champion-box{background:linear-gradient(135deg,#002B57,#003A70);border:2px solid #F5C518;border-radius:8px;padding:12px;width:180px;margin:8px auto 0;text-align:center}
 .champion-label{font-size:9px;color:#8A9BAA;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
 .champion-name{font-size:14px;font-weight:700;color:#F5C518;min-height:20px}
-
-.third-box{background:#111d2a;border:1px solid #0A4EA1;border-radius:8px;padding:10px;width:170px;margin:12px auto 0;text-align:center}
+ 
+.third-box{background:#111d2a;border:1px solid #0A4EA1;border-radius:8px;padding:10px;width:180px;margin:12px auto 0;text-align:center}
 .third-label{font-size:9px;color:#0A4EA1;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
 .third-team{font-size:11px;color:#c8d0d9;padding:4px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .third-vs{font-size:9px;color:#3D4E5E;padding:2px 0}
-
-/* Bracket connector lines via SVG */
-.bk-col-inner{position:relative}
-
-/* Score colours */
-input.score-input[data-filled="true"]{background:#1a3a1a;border-color:#00843D;color:#7ec87e}
+ 
+.r32-note{background:#111d2a;border:1px solid #1a2d44;border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:12px;color:#8A9BAA;line-height:1.6}
+.r32-note b{color:#F5C518}
 </style>
 </head>
 <body>
-
+ 
 <div class="header">
   <div class="header-tricolor"><div class="hca"></div><div class="hmx"></div><div class="hus"></div></div>
   <div class="header-inner">
-    <div>
-      <div class="header-title">FIFA WORLD CUP 2026 — MATCH PREDICTOR</div>
-      <div class="header-sub">Enter scores on the left. Standings and bracket update automatically.</div>
-    </div>
+    <div class="header-title">FIFA WORLD CUP 2026 — MATCH PREDICTOR</div>
+    <div class="header-sub">Official schedule (104 matches). Enter scores on the left — standings, third-place rankings, and the bracket update automatically.</div>
   </div>
 </div>
-
+ 
 <div class="app">
   <div class="left" id="left-panel">
     <div class="left-header">All Matches — Enter Scores</div>
     <div id="match-list"></div>
   </div>
-
+ 
   <div class="right">
     <div class="tabs">
       <button class="tab active" onclick="showTab('standings')">Group Standings</button>
+      <button class="tab" onclick="showTab('thirdplace')">Best 3rd-Place</button>
       <button class="tab" onclick="showTab('bracket')">Knockout Bracket</button>
     </div>
     <div id="tab-standings" class="tab-pane active">
       <div class="standings-grid" id="standings-grid"></div>
+    </div>
+    <div id="tab-thirdplace" class="tab-pane">
+      <div class="r32-note">The <b>top 2</b> teams from each group qualify automatically (24 teams). The remaining <b>8 Round of 32 slots</b> go to the best third-place finishers across all 12 groups, ranked by Pts &gt; GD &gt; GF &gt; GA. The 8 qualifying groups determine the exact Round of 32 matchups per the official draw table.</div>
+      <div class="third-place-table">
+        <div class="tp-header">Third-place rankings — best 8 advance</div>
+        <div class="tp-cols">
+          <span class="tp-col-hdr">#</span>
+          <span class="tp-col-hdr">Team (Group)</span>
+          <span class="tp-col-hdr">Grp</span>
+          <span class="tp-col-hdr">Pts</span>
+          <span class="tp-col-hdr">GD</span>
+          <span class="tp-col-hdr">GF</span>
+        </div>
+        <div id="third-place-rows"></div>
+      </div>
     </div>
     <div id="tab-bracket" class="tab-pane">
       <div class="bracket-wrap">
@@ -148,244 +166,279 @@ input.score-input[data-filled="true"]{background:#1a3a1a;border-color:#00843D;co
     </div>
   </div>
 </div>
-
+ 
 <script>
-const GROUPS = {
-  A:["Mexico","South Korea","South Africa","Czechia"],
-  B:["Switzerland","Canada","Bosnia-Herz.","Qatar"],
-  C:["Brazil","Morocco","Scotland","Haiti"],
-  D:["USA","Australia","Paraguay","Turkey"],
-  E:["Germany","Ecuador","Ivory Coast","Curacao"],
-  F:["Netherlands","Japan","Sweden","Tunisia"],
-  G:["Belgium","Iran","Egypt","New Zealand"],
-  H:["Spain","Uruguay","Saudi Arabia","Cape Verde"],
-  I:["France","Senegal","Norway","Iraq"],
-  J:["Argentina","Algeria","Austria","Jordan"],
-  K:["Portugal","Colombia","DR Congo","Uzbekistan"],
-  L:["England","Croatia","Ghana","Panama"]
-};
+const GROUPS = {"A": ["Mexico", "South Africa", "South Korea", "Czechia"], "B": ["Canada", "Bosnia-Herz.", "Qatar", "Switzerland"], "C": ["Haiti", "Scotland", "Brazil", "Morocco"], "D": ["USA", "Paraguay", "Australia", "Turkey"], "E": ["Ivory Coast", "Ecuador", "Germany", "Curacao"], "F": ["Netherlands", "Japan", "Sweden", "Tunisia"], "G": ["Iran", "New Zealand", "Belgium", "Egypt"], "H": ["Saudi Arabia", "Uruguay", "Spain", "Cape Verde"], "I": ["France", "Senegal", "Iraq", "Norway"], "J": ["Argentina", "Algeria", "Austria", "Jordan"], "K": ["Portugal", "DR Congo", "Uzbekistan", "Colombia"], "L": ["Ghana", "Panama", "England", "Croatia"]};
+const GROUP_MATCHES = {"A": [{"date": "Jun 11", "home": "Mexico", "away": "South Africa", "venue": "Mexico City", "num": 1}, {"date": "Jun 11", "home": "South Korea", "away": "Czechia", "venue": "Guadalajara", "num": 2}, {"date": "Jun 18", "home": "Czechia", "away": "South Africa", "venue": "Atlanta", "num": 25}, {"date": "Jun 18", "home": "Mexico", "away": "South Korea", "venue": "Guadalajara", "num": 28}, {"date": "Jun 24", "home": "Czechia", "away": "Mexico", "venue": "Mexico City", "num": 53}, {"date": "Jun 24", "home": "South Africa", "away": "South Korea", "venue": "Monterrey", "num": 54}], "B": [{"date": "Jun 12", "home": "Canada", "away": "Bosnia-Herz.", "venue": "Toronto", "num": 3}, {"date": "Jun 13", "home": "Qatar", "away": "Switzerland", "venue": "San Francisco", "num": 8}, {"date": "Jun 18", "home": "Switzerland", "away": "Bosnia-Herz.", "venue": "Los Angeles", "num": 26}, {"date": "Jun 18", "home": "Canada", "away": "Qatar", "venue": "Vancouver", "num": 27}, {"date": "Jun 24", "home": "Switzerland", "away": "Canada", "venue": "Vancouver", "num": 51}, {"date": "Jun 24", "home": "Bosnia-Herz.", "away": "Qatar", "venue": "Seattle", "num": 52}], "C": [{"date": "Jun 13", "home": "Haiti", "away": "Scotland", "venue": "Boston", "num": 5}, {"date": "Jun 13", "home": "Brazil", "away": "Morocco", "venue": "New York/NJ", "num": 7}, {"date": "Jun 19", "home": "Brazil", "away": "Haiti", "venue": "Philadelphia", "num": 29}, {"date": "Jun 19", "home": "Scotland", "away": "Morocco", "venue": "Boston", "num": 30}, {"date": "Jun 24", "home": "Scotland", "away": "Brazil", "venue": "Miami", "num": 49}, {"date": "Jun 24", "home": "Morocco", "away": "Haiti", "venue": "Atlanta", "num": 50}], "D": [{"date": "Jun 12", "home": "USA", "away": "Paraguay", "venue": "Los Angeles", "num": 4}, {"date": "Jun 13", "home": "Australia", "away": "Turkey", "venue": "Vancouver", "num": 6}, {"date": "Jun 19", "home": "Turkey", "away": "Paraguay", "venue": "San Francisco", "num": 31}, {"date": "Jun 19", "home": "USA", "away": "Australia", "venue": "Seattle", "num": 32}, {"date": "Jun 25", "home": "Turkey", "away": "USA", "venue": "Los Angeles", "num": 59}, {"date": "Jun 25", "home": "Paraguay", "away": "Australia", "venue": "San Francisco", "num": 60}], "E": [{"date": "Jun 14", "home": "Ivory Coast", "away": "Ecuador", "venue": "Philadelphia", "num": 9}, {"date": "Jun 14", "home": "Germany", "away": "Curacao", "venue": "Houston", "num": 10}, {"date": "Jun 20", "home": "Germany", "away": "Ivory Coast", "venue": "Toronto", "num": 33}, {"date": "Jun 20", "home": "Ecuador", "away": "Curacao", "venue": "Kansas City", "num": 34}, {"date": "Jun 25", "home": "Curacao", "away": "Ivory Coast", "venue": "Philadelphia", "num": 55}, {"date": "Jun 25", "home": "Ecuador", "away": "Germany", "venue": "New York/NJ", "num": 56}], "F": [{"date": "Jun 14", "home": "Netherlands", "away": "Japan", "venue": "Dallas", "num": 11}, {"date": "Jun 14", "home": "Sweden", "away": "Tunisia", "venue": "Monterrey", "num": 12}, {"date": "Jun 20", "home": "Netherlands", "away": "Sweden", "venue": "Houston", "num": 35}, {"date": "Jun 20", "home": "Tunisia", "away": "Japan", "venue": "Monterrey", "num": 36}, {"date": "Jun 25", "home": "Japan", "away": "Sweden", "venue": "Dallas", "num": 57}, {"date": "Jun 25", "home": "Tunisia", "away": "Netherlands", "venue": "Kansas City", "num": 58}], "G": [{"date": "Jun 15", "home": "Iran", "away": "New Zealand", "venue": "Los Angeles", "num": 15}, {"date": "Jun 15", "home": "Belgium", "away": "Egypt", "venue": "Seattle", "num": 16}, {"date": "Jun 21", "home": "Belgium", "away": "Iran", "venue": "Los Angeles", "num": 39}, {"date": "Jun 21", "home": "New Zealand", "away": "Egypt", "venue": "Vancouver", "num": 40}, {"date": "Jun 26", "home": "Egypt", "away": "Iran", "venue": "Seattle", "num": 63}, {"date": "Jun 26", "home": "New Zealand", "away": "Belgium", "venue": "Vancouver", "num": 64}], "H": [{"date": "Jun 15", "home": "Saudi Arabia", "away": "Uruguay", "venue": "Miami", "num": 13}, {"date": "Jun 15", "home": "Spain", "away": "Cape Verde", "venue": "Atlanta", "num": 14}, {"date": "Jun 21", "home": "Uruguay", "away": "Cape Verde", "venue": "Miami", "num": 37}, {"date": "Jun 21", "home": "Spain", "away": "Saudi Arabia", "venue": "Atlanta", "num": 38}, {"date": "Jun 26", "home": "Cape Verde", "away": "Saudi Arabia", "venue": "Houston", "num": 65}, {"date": "Jun 26", "home": "Uruguay", "away": "Spain", "venue": "Guadalajara", "num": 66}], "I": [{"date": "Jun 16", "home": "France", "away": "Senegal", "venue": "New York/NJ", "num": 17}, {"date": "Jun 16", "home": "Iraq", "away": "Norway", "venue": "Boston", "num": 18}, {"date": "Jun 22", "home": "Norway", "away": "Senegal", "venue": "New York/NJ", "num": 41}, {"date": "Jun 22", "home": "France", "away": "Iraq", "venue": "Philadelphia", "num": 42}, {"date": "Jun 26", "home": "Norway", "away": "France", "venue": "Boston", "num": 61}, {"date": "Jun 26", "home": "Senegal", "away": "Iraq", "venue": "Toronto", "num": 62}], "J": [{"date": "Jun 16", "home": "Argentina", "away": "Algeria", "venue": "Kansas City", "num": 19}, {"date": "Jun 16", "home": "Austria", "away": "Jordan", "venue": "San Francisco", "num": 20}, {"date": "Jun 22", "home": "Argentina", "away": "Austria", "venue": "Dallas", "num": 43}, {"date": "Jun 22", "home": "Jordan", "away": "Algeria", "venue": "San Francisco", "num": 44}, {"date": "Jun 27", "home": "Algeria", "away": "Austria", "venue": "Kansas City", "num": 69}, {"date": "Jun 27", "home": "Jordan", "away": "Argentina", "venue": "Dallas", "num": 70}], "K": [{"date": "Jun 17", "home": "Portugal", "away": "DR Congo", "venue": "Houston", "num": 23}, {"date": "Jun 17", "home": "Uzbekistan", "away": "Colombia", "venue": "Mexico City", "num": 24}, {"date": "Jun 23", "home": "Portugal", "away": "Uzbekistan", "venue": "Houston", "num": 47}, {"date": "Jun 23", "home": "Colombia", "away": "DR Congo", "venue": "Guadalajara", "num": 48}, {"date": "Jun 27", "home": "Colombia", "away": "Portugal", "venue": "Miami", "num": 71}, {"date": "Jun 27", "home": "DR Congo", "away": "Uzbekistan", "venue": "Atlanta", "num": 72}], "L": [{"date": "Jun 17", "home": "Ghana", "away": "Panama", "venue": "Toronto", "num": 21}, {"date": "Jun 17", "home": "England", "away": "Croatia", "venue": "Dallas", "num": 22}, {"date": "Jun 23", "home": "England", "away": "Ghana", "venue": "Boston", "num": 45}, {"date": "Jun 23", "home": "Panama", "away": "Croatia", "venue": "Toronto", "num": 46}, {"date": "Jun 27", "home": "Panama", "away": "England", "venue": "New York/NJ", "num": 67}, {"date": "Jun 27", "home": "Croatia", "away": "Ghana", "venue": "Philadelphia", "num": 68}]};
+const R32 = [[73, "Jun 28", "Group A runners-up", "Group B runners-up", "Los Angeles"], [74, "Jun 29", "Group E winners", "Group A/B/C/D/F 3rd place", "Boston"], [75, "Jun 29", "Group F winners", "Group C runners-up", "Monterrey"], [76, "Jun 29", "Group C winners", "Group F runners-up", "Houston"], [77, "Jun 30", "Group I winners", "Group C/D/F/G/H 3rd place", "New York/NJ"], [78, "Jun 30", "Group E runners-up", "Group I runners-up", "Dallas"], [79, "Jun 30", "Group A winners", "Group C/E/F/H/I 3rd place", "Mexico City"], [80, "Jul 1", "Group L winners", "Group E/H/I/J/K 3rd place", "Atlanta"], [81, "Jul 1", "Group D winners", "Group B/E/F/I/J 3rd place", "San Francisco"], [82, "Jul 1", "Group G winners", "Group A/E/H/I/J 3rd place", "Seattle"], [83, "Jul 2", "Group K runners-up", "Group L runners-up", "Toronto"], [84, "Jul 2", "Group H winners", "Group J runners-up", "Los Angeles"], [85, "Jul 2", "Group B winners", "Group E/F/G/I/J 3rd place", "Vancouver"], [86, "Jul 3", "Group J winners", "Group H runners-up", "Miami"], [87, "Jul 3", "Group K winners", "Group D/E/I/J/L 3rd place", "Kansas City"], [88, "Jul 3", "Group D runners-up", "Group G runners-up", "Dallas"]];   // [num, date, homeDesc, awayDesc, venue]
+const R16 = [[89, "Jul 4", "Winner M74", "Winner M77", "Philadelphia"], [90, "Jul 4", "Winner M73", "Winner M75", "Houston"], [91, "Jul 5", "Winner M76", "Winner M78", "New York/NJ"], [92, "Jul 5", "Winner M79", "Winner M80", "Mexico City"], [93, "Jul 6", "Winner M83", "Winner M84", "Dallas"], [94, "Jul 6", "Winner M81", "Winner M82", "Seattle"], [95, "Jul 7", "Winner M86", "Winner M88", "Atlanta"], [96, "Jul 7", "Winner M85", "Winner M87", "Vancouver"]];
+const QF  = [[97, "Jul 9", "Winner M89", "Winner M90", "Boston"], [98, "Jul 10", "Winner M93", "Winner M94", "Los Angeles"], [99, "Jul 11", "Winner M91", "Winner M92", "Miami"], [100, "Jul 11", "Winner M95", "Winner M96", "Kansas City"]];
+const SF  = [[101, "Jul 14", "Winner M97", "Winner M98", "Dallas"], [102, "Jul 15", "Winner M99", "Winner M100", "Atlanta"]];
+const THIRD = [103, "Jul 18", "Loser M101", "Loser M102", "Miami"];
+const FINAL = [104, "Jul 19", "Winner M101", "Winner M102", "New York/NJ"];
 const GKEYS = Object.keys(GROUPS);
-const MATCHES = [[0,1],[2,3],[0,2],[1,3],[0,3],[1,2]];
-const GDATES = {
-  A:["Jun 11","Jun 11","Jun 19","Jun 20","Jun 26","Jun 26"],
-  B:["Jun 12","Jun 13","Jun 19","Jun 20","Jun 26","Jun 26"],
-  C:["Jun 13","Jun 13","Jun 20","Jun 21","Jun 26","Jun 26"],
-  D:["Jun 12","Jun 13","Jun 21","Jun 22","Jun 26","Jun 26"],
-  E:["Jun 14","Jun 14","Jun 21","Jun 22","Jun 27","Jun 27"],
-  F:["Jun 14","Jun 16","Jun 21","Jun 22","Jun 27","Jun 27"],
-  G:["Jun 15","Jun 15","Jun 22","Jun 23","Jun 27","Jun 27"],
-  H:["Jun 15","Jun 15","Jun 22","Jun 23","Jun 27","Jun 27"],
-  I:["Jun 16","Jun 17","Jun 23","Jun 24","Jun 27","Jun 27"],
-  J:["Jun 17","Jun 18","Jun 23","Jun 24","Jun 27","Jun 27"],
-  K:["Jun 17","Jun 18","Jun 24","Jun 25","Jun 27","Jun 27"],
-  L:["Jun 17","Jun 18","Jun 24","Jun 25","Jun 27","Jun 27"]
-};
+ 
 const GRP_COLORS = {
   A:"#00843D",B:"#B5121B",C:"#003A70",D:"#0A4EA1",
-  E:"#006B32",F:"#8A0E18",G:"#003A70",H:"#00843D",
-  I:"#B5121B",J:"#0A4EA1",K:"#006B32",L:"#8A0E18"
+  E:"#006B32",F:"#8A0E18",G:"#185FA5",H:"#27500A",
+  I:"#993556",J:"#3C3489",K:"#854F0B",L:"#791F1F"
 };
 const KO_ROUND_COLORS = {
   r32:"#B5121B",r16:"#003A70",qf:"#006B32",sf:"#D80621",
   final:"#8A0E18","3rd":"#0A4EA1"
 };
-
-// scores[key] = {h:number|null, a:number|null}
-// key format: "G_A_0" for group match, "R32_0" etc for knockout
+ 
+// scores[key] = {h, a}
 const scores = {};
-
-// ── Computed state helpers ─────────────────────────────────────────────────
+ 
+// ── Group stats ───────────────────────────────────────────────────────────
 function getGroupStats(gkey) {
   const teams = GROUPS[gkey];
-  const stats = teams.map((name,i) => ({
-    name, p:0, w:0, d:0, l:0, gf:0, ga:0, gd:0, pts:0
-  }));
-  MATCHES.forEach(([a,b], mi) => {
-    const key = `G_${gkey}_${mi}`;
+  const stats = teams.map(name => ({name, p:0,w:0,d:0,l:0,gf:0,ga:0,gd:0,pts:0}));
+  const idx = {}; teams.forEach((t,i)=>idx[t]=i);
+ 
+  GROUP_MATCHES[gkey].forEach(m => {
+    const key = `G_${gkey}_${m.num}`;
     const sc = scores[key];
-    if(sc && sc.h !== null && sc.a !== null) {
-      stats[a].p++; stats[b].p++;
-      stats[a].gf += sc.h; stats[a].ga += sc.a;
-      stats[b].gf += sc.a; stats[b].ga += sc.h;
-      if(sc.h > sc.a){ stats[a].w++; stats[b].l++; stats[a].pts+=3; }
-      else if(sc.a > sc.h){ stats[b].w++; stats[a].l++; stats[b].pts+=3; }
-      else { stats[a].d++; stats[b].d++; stats[a].pts+=1; stats[b].pts+=1; }
+    if(sc && sc.h !== null && sc.a !== null && sc.h !== undefined && sc.a !== undefined) {
+      const hi = idx[m.home], ai = idx[m.away];
+      stats[hi].p++; stats[ai].p++;
+      stats[hi].gf += sc.h; stats[hi].ga += sc.a;
+      stats[ai].gf += sc.a; stats[ai].ga += sc.h;
+      if(sc.h > sc.a){ stats[hi].w++; stats[ai].l++; stats[hi].pts+=3; }
+      else if(sc.a > sc.h){ stats[ai].w++; stats[hi].l++; stats[ai].pts+=3; }
+      else { stats[hi].d++; stats[ai].d++; stats[hi].pts+=1; stats[ai].pts+=1; }
     }
   });
   stats.forEach(s => s.gd = s.gf - s.ga);
-  // sort: pts desc, gd desc, gf desc, name asc
   stats.sort((a,b) => b.pts-a.pts || b.gd-a.gd || b.gf-a.gf || a.name.localeCompare(b.name));
   return stats;
 }
-
-function groupWinner(gkey)  { return getGroupStats(gkey)[0]?.name || ''; }
-function groupRunner(gkey)  { return getGroupStats(gkey)[1]?.name || ''; }
-
-// Knockout bracket state — returns winner of a given ko match
+ 
+function groupWinner(gkey){ return getGroupStats(gkey)[0]; }
+function groupRunner(gkey){ return getGroupStats(gkey)[1]; }
+function groupThird(gkey){ return getGroupStats(gkey)[2]; }
+ 
+// ── Best 3rd place ranking across all groups ────────────────────────────────
+function getThirdPlaceRanking() {
+  const thirds = GKEYS.map(g => {
+    const t = groupThird(g);
+    return {...t, group:g};
+  });
+  thirds.sort((a,b) => b.pts-a.pts || b.gd-a.gd || b.gf-a.gf || (b.ga-a.ga)*-1 || a.name.localeCompare(b.name));
+  return thirds; // ranked list of 12, top 8 advance
+}
+ 
+// Determine which GROUP LETTERS make up the best-8 third place set
+function bestThirdGroups() {
+  const ranked = getThirdPlaceRanking();
+  return ranked.slice(0,8).map(t=>t.group);
+}
+ 
+// ── Resolve descriptive R32 slot text into actual team or placeholder ───────
+// Descriptions look like: "Group A runners-up", "Group E winners",
+// "Group A/B/C/D/F 3rd place", "Group C/E/F/H/I 3rd place", etc.
+function resolveSlotDescription(desc) {
+  // "Group X winners" / "Group X runners-up"
+  let m = desc.match(/^Group ([A-L]) (winners|runners-up)$/);
+  if(m) {
+    const g = m[1], type = m[2];
+    const stats = getGroupStats(g);
+    const allPlayed = GROUP_MATCHES[g].every(mm => {
+      const sc = scores[`G_${g}_${mm.num}`];
+      return sc && sc.h!==null && sc.a!==null && sc.h!==undefined && sc.a!==undefined;
+    });
+    const anyPlayed = GROUP_MATCHES[g].some(mm => {
+      const sc = scores[`G_${g}_${mm.num}`];
+      return sc && sc.h!==null && sc.a!==null && sc.h!==undefined && sc.a!==undefined;
+    });
+    const team = type==='winners' ? stats[0] : stats[1];
+    if(!anyPlayed) return {text:`Group ${g} ${type==='winners'?'winner':'runner-up'}`, tbd:true, team:null};
+    return {text: team.name, tbd: !allPlayed, team: team.name, partial: !allPlayed};
+  }
+  // "Group A/B/C/D/F 3rd place"  -- list of possible groups
+  m = desc.match(/^Group ([A-L\/]+) 3rd place$/);
+  if(m) {
+    const possibleGroups = m[1].split('/');
+    // Check if all 12 groups have complete data
+    const allComplete = GKEYS.every(g => GROUP_MATCHES[g].every(mm => {
+      const sc = scores[`G_${g}_${mm.num}`];
+      return sc && sc.h!==null && sc.a!==null && sc.h!==undefined && sc.a!==undefined;
+    }));
+    if(!allComplete) {
+      return {text:`Best 3rd (${possibleGroups.join('/')})`, tbd:true, team:null};
+    }
+    // All complete: figure out which of the possibleGroups is in the best-8 set,
+    // AND assign in order based on official slotting (rank order within possibleGroups)
+    const best8 = bestThirdGroups();
+    const matchingGroups = possibleGroups.filter(g => best8.includes(g));
+    if(matchingGroups.length === 0) {
+      return {text:`Best 3rd — none of ${possibleGroups.join('/')} qualified`, tbd:true, team:null};
+    }
+    // Use the highest-ranked among matching groups (standard FIFA approach assigns
+    // by ranking position, but exact slotting requires the official allocation table;
+    // we use best available match)
+    const ranked = getThirdPlaceRanking();
+    for(const r of ranked) {
+      if(matchingGroups.includes(r.group)) {
+        return {text:`${r.name} (Grp ${r.group}, 3rd)`, tbd:false, team:r.name};
+      }
+    }
+    return {text:`Best 3rd (${possibleGroups.join('/')})`, tbd:true, team:null};
+  }
+  return {text: desc, tbd: true, team:null};
+}
+ 
+// ── KO slot definitions ───────────────────────────────────────────────────
+const koSlots = {};
+ 
+function defineR32() {
+  R32.forEach(([num,date,homeDesc,awayDesc,venue]) => {
+    koSlots[`R32_${num}`] = {
+      num, date, venue,
+      home: ()=>resolveSlotDescription(homeDesc),
+      away: ()=>resolveSlotDescription(awayDesc),
+      homeDesc, awayDesc
+    };
+  });
+}
+ 
 function koWinner(key) {
   const sc = scores[key];
-  if(!sc || sc.h === null || sc.a === null) return null;
+  if(!sc || sc.h===null || sc.a===null || sc.h===undefined || sc.a===undefined) return null;
   const sl = koSlots[key];
   if(!sl) return null;
   const h = sl.home(), a = sl.away();
-  if(!h || !a) return null;
-  if(sc.h > sc.a) return h;
-  if(sc.a > sc.h) return a;
-  return h + ' (Pen)';
+  if(!h.team || !a.team) return null;
+  if(sc.h > sc.a) return h.team;
+  if(sc.a > sc.h) return a.team;
+  return h.team + ' (Pen)';
 }
 function koLoser(key) {
   const sc = scores[key];
-  if(!sc || sc.h === null || sc.a === null) return null;
+  if(!sc || sc.h===null || sc.a===null || sc.h===undefined || sc.a===undefined) return null;
   const sl = koSlots[key];
   if(!sl) return null;
   const h = sl.home(), a = sl.away();
-  if(!h || !a) return null;
-  if(sc.h < sc.a) return h;
-  if(sc.a < sc.h) return a;
+  if(!h.team || !a.team) return null;
+  if(sc.h < sc.a) return h.team;
+  if(sc.a < sc.h) return a.team;
   return null;
 }
-
-// koSlots: define home/away for each KO match as functions
-const koSlots = {};
-
-function defineR32() {
-  const matchups = [
-    // left 8
-    {key:'R32_0', home:()=>groupWinner('A'), away:()=>groupRunner('B')},
-    {key:'R32_1', home:()=>groupWinner('C'), away:()=>groupRunner('D')},
-    {key:'R32_2', home:()=>groupWinner('E'), away:()=>groupRunner('F')},
-    {key:'R32_3', home:()=>groupWinner('G'), away:()=>groupRunner('H')},
-    {key:'R32_4', home:()=>groupWinner('B'), away:()=>groupRunner('A')},
-    {key:'R32_5', home:()=>groupWinner('D'), away:()=>groupRunner('C')},
-    {key:'R32_6', home:()=>groupWinner('F'), away:()=>groupRunner('E')},
-    {key:'R32_7', home:()=>groupWinner('H'), away:()=>groupRunner('G')},
-    // right 8
-    {key:'R32_8',  home:()=>groupWinner('I'), away:()=>groupRunner('J')},
-    {key:'R32_9',  home:()=>groupWinner('K'), away:()=>groupRunner('L')},
-    {key:'R32_10', home:()=>groupWinner('J'), away:()=>groupRunner('I')},
-    {key:'R32_11', home:()=>groupWinner('L'), away:()=>groupRunner('K')},
-    {key:'R32_12', home:()=>'Best 3rd (C/E/F/H)', away:()=>'Winner TBD'},
-    {key:'R32_13', home:()=>'Best 3rd (A/B/C/D)', away:()=>'Winner TBD'},
-    {key:'R32_14', home:()=>'Best 3rd (G/H/I/J)', away:()=>'Winner TBD'},
-    {key:'R32_15', home:()=>'Best 3rd (E/F/G/H)', away:()=>'Winner TBD'},
-  ];
-  matchups.forEach(m => { koSlots[m.key] = m; });
-}
-
+ 
 function defineR16() {
-  // pairs: R32 matches → R16 matches
-  const pairs = [
-    [0,1],[2,3],[4,5],[6,7],       // left half → R16 0-3
-    [8,9],[10,11],[12,13],[14,15]  // right half → R16 4-7
-  ];
-  pairs.forEach(([a,b],i) => {
-    const key = `R16_${i}`;
-    koSlots[key] = {
-      key,
-      home: ()=>koWinner(`R32_${a}`) || `W R32-${a+1}`,
-      away: ()=>koWinner(`R32_${b}`) || `W R32-${b+1}`
+  R16.forEach(([num,date,homeDesc,awayDesc,venue]) => {
+    const homeMatch = homeDesc.match(/Winner M(\d+)/);
+    const awayMatch = awayDesc.match(/Winner M(\d+)/);
+    const hKey = `R32_${homeMatch[1]}`, aKey = `R32_${awayMatch[1]}`;
+    koSlots[`R16_${num}`] = {
+      num, date, venue,
+      home: ()=>{ const w = koWinner(hKey); return {text: w || `Winner M${homeMatch[1]}`, tbd: !w, team: w}; },
+      away: ()=>{ const w = koWinner(aKey); return {text: w || `Winner M${awayMatch[1]}`, tbd: !w, team: w}; },
+      srcHome:hKey, srcAway:aKey
     };
   });
 }
-
+ 
 function defineQF() {
-  [[0,1],[2,3],[4,5],[6,7]].forEach(([a,b],i) => {
-    const key = `QF_${i}`;
-    koSlots[key] = {
-      key,
-      home: ()=>koWinner(`R16_${a}`) || `W R16-${a+1}`,
-      away: ()=>koWinner(`R16_${b}`) || `W R16-${b+1}`
+  QF.forEach(([num,date,homeDesc,awayDesc,venue]) => {
+    const homeMatch = homeDesc.match(/Winner M(\d+)/);
+    const awayMatch = awayDesc.match(/Winner M(\d+)/);
+    const hKey = `R16_${homeMatch[1]}`, aKey = `R16_${awayMatch[1]}`;
+    koSlots[`QF_${num}`] = {
+      num, date, venue,
+      home: ()=>{ const w = koWinner(hKey); return {text: w || `Winner M${homeMatch[1]}`, tbd: !w, team: w}; },
+      away: ()=>{ const w = koWinner(aKey); return {text: w || `Winner M${awayMatch[1]}`, tbd: !w, team: w}; },
+      srcHome:hKey, srcAway:aKey
     };
   });
 }
-
+ 
 function defineSF() {
-  [[0,1],[2,3]].forEach(([a,b],i) => {
-    const key = `SF_${i}`;
-    koSlots[key] = {
-      key,
-      home: ()=>koWinner(`QF_${a}`) || `W QF-${a+1}`,
-      away: ()=>koWinner(`QF_${b}`) || `W QF-${b+1}`
+  SF.forEach(([num,date,homeDesc,awayDesc,venue]) => {
+    const homeMatch = homeDesc.match(/Winner M(\d+)/);
+    const awayMatch = awayDesc.match(/Winner M(\d+)/);
+    const hKey = `QF_${homeMatch[1]}`, aKey = `QF_${awayMatch[1]}`;
+    koSlots[`SF_${num}`] = {
+      num, date, venue,
+      home: ()=>{ const w = koWinner(hKey); return {text: w || `Winner M${homeMatch[1]}`, tbd: !w, team: w}; },
+      away: ()=>{ const w = koWinner(aKey); return {text: w || `Winner M${awayMatch[1]}`, tbd: !w, team: w}; },
+      srcHome:hKey, srcAway:aKey
     };
   });
 }
-
-function defineFinal() {
-  koSlots['FINAL'] = {
-    key:'FINAL',
-    home: ()=>koWinner('SF_0') || 'W SF-1',
-    away: ()=>koWinner('SF_1') || 'W SF-2'
+ 
+function defineFinalAndThird() {
+  const [fNum,fDate,fHomeDesc,fAwayDesc,fVenue] = FINAL;
+  const fhm = fHomeDesc.match(/Winner M(\d+)/), fam = fAwayDesc.match(/Winner M(\d+)/);
+  const fhKey = `SF_${fhm[1]}`, faKey = `SF_${fam[1]}`;
+  koSlots[`FINAL_${fNum}`] = {
+    num:fNum, date:fDate, venue:fVenue,
+    home: ()=>{ const w = koWinner(fhKey); return {text: w || `Winner M${fhm[1]}`, tbd: !w, team: w}; },
+    away: ()=>{ const w = koWinner(faKey); return {text: w || `Winner M${fam[1]}`, tbd: !w, team: w}; },
+    srcHome:fhKey, srcAway:faKey
   };
-  koSlots['3RD'] = {
-    key:'3RD',
-    home: ()=>koLoser('SF_0') || 'Loser SF-1',
-    away: ()=>koLoser('SF_1') || 'Loser SF-2'
+ 
+  const [tNum,tDate,tHomeDesc,tAwayDesc,tVenue] = THIRD;
+  const thm = tHomeDesc.match(/Loser M(\d+)/), tam = tAwayDesc.match(/Loser M(\d+)/);
+  const thKey = `SF_${thm[1]}`, taKey = `SF_${tam[1]}`;
+  koSlots[`THIRD_${tNum}`] = {
+    num:tNum, date:tDate, venue:tVenue,
+    home: ()=>{ const l = koLoser(thKey); return {text: l || `Loser M${thm[1]}`, tbd: !l, team: l}; },
+    away: ()=>{ const l = koLoser(taKey); return {text: l || `Loser M${tam[1]}`, tbd: !l, team: l}; },
+    srcHome:thKey, srcAway:taKey
   };
 }
-
-defineR32(); defineR16(); defineQF(); defineSF(); defineFinal();
-
-// ── Render left panel ──────────────────────────────────────────────────────
+ 
+defineR32(); defineR16(); defineQF(); defineSF(); defineFinalAndThird();
+ 
+// ── Render left panel ────────────────────────────────────────────────────
 function buildLeftPanel() {
   const list = document.getElementById('match-list');
   let html = '';
-
-  // Group stage
+ 
   html += `<div class="section-hdr gs-main">Group Stage &mdash; Jun 11&ndash;27</div>`;
   GKEYS.forEach(gkey => {
-    html += `<div class="section-hdr grp-${gkey}">Group ${gkey}</div>`;
-    MATCHES.forEach(([t1i,t2i], mi) => {
-      const key = `G_${gkey}_${mi}`;
-      const t1 = GROUPS[gkey][t1i], t2 = GROUPS[gkey][t2i];
+    html += `<div class="section-hdr grp-${gkey}">Group ${gkey} — ${GROUPS[gkey].join(' / ')}</div>`;
+    GROUP_MATCHES[gkey].forEach(m => {
+      const key = `G_${gkey}_${m.num}`;
       html += `<div class="match-row">
-        <span class="match-date">${GDATES[gkey][mi]}</span>
-        <span class="match-team home">${t1}</span>
-        <input class="score-input" type="number" min="0" max="20" placeholder="–" data-key="${key}" data-side="h" id="s_${key}_h">
+        <span class="match-num">M${m.num}</span>
+        <span class="match-date">${m.date}</span>
+        <span class="match-team home">${m.home}</span>
+        <input class="score-input" type="number" min="0" max="20" placeholder="–" data-key="${key}" data-side="h">
         <span class="score-sep">:</span>
-        <input class="score-input" type="number" min="0" max="20" placeholder="–" data-key="${key}" data-side="a" id="s_${key}_a">
-        <span class="match-team away">${t2}</span>
+        <input class="score-input" type="number" min="0" max="20" placeholder="–" data-key="${key}" data-side="a">
+        <span class="match-team away">${m.away}</span>
       </div>`;
     });
   });
-
-  // Knockout rounds
-  const koRounds = [
-    { label:'Round of 32 — Jun 28–Jul 2', cls:'ko-r32', matches: Array.from({length:16},(_,i)=>`R32_${i}`) },
-    { label:'Round of 16 — Jul 4–7',      cls:'ko-r16', matches: Array.from({length:8}, (_,i)=>`R16_${i}`) },
-    { label:'Quarter-Finals — Jul 9–10',  cls:'ko-qf',  matches: Array.from({length:4}, (_,i)=>`QF_${i}`) },
-    { label:'Semi-Finals — Jul 14–15',    cls:'ko-sf',  matches: ['SF_0','SF_1'] },
-    { label:'3rd Place — Jul 18',          cls:'ko-3rd', matches: ['3RD'] },
-    { label:'The Final — Jul 19',          cls:'ko-final',matches: ['FINAL'] },
-  ];
-  const koDates = {
-    R32_0:'Jun 28',R32_1:'Jun 28',R32_2:'Jun 29',R32_3:'Jun 29',
-    R32_4:'Jun 30',R32_5:'Jun 30',R32_6:'Jul 1',R32_7:'Jul 1',
-    R32_8:'Jun 28',R32_9:'Jun 28',R32_10:'Jun 29',R32_11:'Jun 30',
-    R32_12:'Jul 1',R32_13:'Jul 1',R32_14:'Jul 2',R32_15:'Jul 2',
-    R16_0:'Jul 4',R16_1:'Jul 4',R16_2:'Jul 5',R16_3:'Jul 5',
-    R16_4:'Jul 6',R16_5:'Jul 6',R16_6:'Jul 7',R16_7:'Jul 7',
-    QF_0:'Jul 9',QF_1:'Jul 9',QF_2:'Jul 10',QF_3:'Jul 10',
-    SF_0:'Jul 14',SF_1:'Jul 15','3RD':'Jul 18',FINAL:'Jul 19'
-  };
-
-  koRounds.forEach(({label,cls,matches}) => {
+ 
+  function koSection(label, cls, keys) {
     html += `<div class="section-hdr ${cls}">${label}</div>`;
-    matches.forEach((key,i) => {
+    keys.forEach(key => {
       const sl = koSlots[key];
       html += `<div class="match-row" id="korow_${key}">
-        <span class="match-date">${koDates[key]||''}</span>
+        <span class="match-num">M${sl.num}</span>
+        <span class="match-date">${sl.date}</span>
         <span class="match-team home tbd" id="ko_home_${key}">–</span>
-        <input class="score-input" type="number" min="0" max="20" placeholder="–" data-key="${key}" data-side="h" id="s_${key}_h">
+        <input class="score-input" type="number" min="0" max="20" placeholder="–" data-key="${key}" data-side="h">
         <span class="score-sep">:</span>
-        <input class="score-input" type="number" min="0" max="20" placeholder="–" data-key="${key}" data-side="a" id="s_${key}_a">
+        <input class="score-input" type="number" min="0" max="20" placeholder="–" data-key="${key}" data-side="a">
         <span class="match-team away tbd" id="ko_away_${key}">–</span>
       </div>`;
     });
-  });
-
+  }
+ 
+  koSection('Round of 32 — Jun 28 – Jul 3', 'ko-r32', R32.map(r=>`R32_${r[0]}`));
+  koSection('Round of 16 — Jul 4 – 7', 'ko-r16', R16.map(r=>`R16_${r[0]}`));
+  koSection('Quarter-Finals — Jul 9 – 11', 'ko-qf', QF.map(r=>`QF_${r[0]}`));
+  koSection('Semi-Finals — Jul 14 – 15', 'ko-sf', SF.map(r=>`SF_${r[0]}`));
+  koSection('3rd Place — Jul 18', 'ko-3rd', [`THIRD_${THIRD[0]}`]);
+  koSection('The Final — Jul 19', 'ko-final', [`FINAL_${FINAL[0]}`]);
+ 
   list.innerHTML = html;
-
-  // Attach listeners
+ 
   list.querySelectorAll('.score-input').forEach(inp => {
     inp.addEventListener('input', () => {
       const key = inp.dataset.key, side = inp.dataset.side;
@@ -397,21 +450,21 @@ function buildLeftPanel() {
     });
   });
 }
-
+ 
 function updateKOTeamNames() {
   Object.keys(koSlots).forEach(key => {
     const sl = koSlots[key];
     const hEl = document.getElementById(`ko_home_${key}`);
     const aEl = document.getElementById(`ko_away_${key}`);
     if(!hEl || !aEl) return;
-    const h = sl.home() || '–', a = sl.away() || '–';
-    hEl.textContent = h; aEl.textContent = a;
-    hEl.classList.toggle('tbd', !h || h.startsWith('W ') || h.startsWith('Best') || h.startsWith('Loser'));
-    aEl.classList.toggle('tbd', !a || a.startsWith('W ') || a.startsWith('Best') || a.startsWith('Loser'));
+    const h = sl.home(), a = sl.away();
+    hEl.textContent = h.text; aEl.textContent = a.text;
+    hEl.classList.toggle('tbd', h.tbd);
+    aEl.classList.toggle('tbd', a.tbd);
   });
 }
-
-// ── Render standings ───────────────────────────────────────────────────────
+ 
+// ── Render standings ─────────────────────────────────────────────────────
 function buildStandings() {
   const grid = document.getElementById('standings-grid');
   let html = '';
@@ -426,19 +479,31 @@ function buildStandings() {
         <span class="st-col-hdr">GD</span><span class="st-col-hdr">Pts</span>
       </div>
       <div id="st_${gkey}"></div>
-      <div class="st-note">Pts &gt; GD &gt; GF &nbsp;|&nbsp; &#9733; Top 2 qualify &nbsp;|&nbsp; Best 8 third-place also advance</div>
+      <div class="st-note">Pts &gt; GD &gt; GF &nbsp;|&nbsp; &#9733; Top 2 qualify &nbsp;|&nbsp; #3 may qualify as a best 3rd-place team</div>
     </div>`;
   });
   grid.innerHTML = html;
 }
-
+ 
 function updateStandings() {
+  const best8 = bestThirdGroups();
+  const anyComplete = GKEYS.some(g => GROUP_MATCHES[g].every(mm => {
+    const sc = scores[`G_${g}_${mm.num}`];
+    return sc && sc.h!==null && sc.a!==null && sc.h!==undefined && sc.a!==undefined;
+  }));
+ 
   GKEYS.forEach(gkey => {
     const stats = getGroupStats(gkey);
     const el = document.getElementById(`st_${gkey}`);
     if(!el) return;
-    el.innerHTML = stats.map((s,i) => `
-      <div class="st-row rank${i+1}${i<2?' qualify':''}">
+    const groupComplete = GROUP_MATCHES[gkey].every(mm => {
+      const sc = scores[`G_${gkey}_${mm.num}`];
+      return sc && sc.h!==null && sc.a!==null && sc.h!==undefined && sc.a!==undefined;
+    });
+    el.innerHTML = stats.map((s,i) => {
+      const isBest3rd = i===2 && groupComplete && best8.includes(gkey);
+      return `
+      <div class="st-row rank${i+1}${isBest3rd?' bestthird':''}">
         <span class="st-name">${s.name}</span>
         <span class="st-stat">${s.p}</span>
         <span class="st-stat">${s.w}</span>
@@ -448,40 +513,43 @@ function updateStandings() {
         <span class="st-stat">${s.ga}</span>
         <span class="st-stat" style="color:${s.gd>0?'#7ec87e':s.gd<0?'#e87272':'#8A9BAA'}">${s.gd>0?'+':''}${s.gd}</span>
         <span class="st-pts">${s.pts}</span>
-      </div>`).join('');
+      </div>`;
+    }).join('');
   });
 }
-
+ 
+// ── Render best-3rd-place table ──────────────────────────────────────────
+function updateThirdPlaceTable() {
+  const ranked = getThirdPlaceRanking();
+  const el = document.getElementById('third-place-rows');
+  el.innerHTML = ranked.map((t,i) => `
+    <div class="tp-row ${i<8?'qualified':''}">
+      <span class="tp-rank">${i+1}</span>
+      <span class="tp-name">${t.name}</span>
+      <span class="tp-group">${t.group}</span>
+      <span class="tp-stat">${t.pts}</span>
+      <span class="tp-stat" style="color:${t.gd>0?'#7ec87e':t.gd<0?'#e87272':'#8A9BAA'}">${t.gd>0?'+':''}${t.gd}</span>
+      <span class="tp-stat">${t.gf}</span>
+    </div>`).join('');
+}
+ 
 // ── Render bracket ─────────────────────────────────────────────────────────
 function buildBracket() {
   const b = document.getElementById('bracket');
-
-  // We'll build left half (R32→SF), center (Final/Champion), right half (SF→R32)
-  // Each round column contains match slots with connectors
-
-  function teamEl(name, isWinner) {
-    if(!name || name === '–') return `<div class="bk-team tbd">TBD</div>`;
-    const isTbd = name.startsWith('W ') || name.startsWith('Best') || name.startsWith('Loser') || name.startsWith('Winner');
-    return `<div class="bk-team ${isTbd?'tbd':''} ${isWinner?'winner':''}">${name}</div>`;
+ 
+  function teamEl(slotResult) {
+    if(!slotResult.team) return `<div class="bk-team tbd">${slotResult.text}</div>`;
+    return `<div class="bk-team">${slotResult.text}</div>`;
   }
-
+ 
   function matchBox(key) {
     const sl = koSlots[key];
-    const h = sl?.home() || 'TBD', a = sl?.away() || 'TBD';
-    const w = koWinner(key);
-    return `<div class="bk-match" id="bk_${key}">
-      ${teamEl(h, w && w.startsWith(h))}
-      ${teamEl(a, w && w.startsWith(a))}
-    </div>`;
+    const h = sl.home(), a = sl.away();
+    return `<div class="bk-match" id="bk_${key}">${teamEl(h)}${teamEl(a)}</div>`;
   }
-
-  // Left side: R32 0-7 → R16 0-3 → QF 0-1 → SF 0
-  // Right side: R32 8-15 → R16 4-7 → QF 2-3 → SF 1
-  // We render as stacked columns with spacers
-
-  function leftCol(rnd, keys, colorKey) {
+ 
+  function col(rnd, keys, colorKey, label) {
     const color = KO_ROUND_COLORS[colorKey] || '#003A70';
-    const label = {r32:'Round of 32',r16:'Round of 16',qf:'Quarter-Finals',sf:'Semi-Finals'}[colorKey]||colorKey;
     let inner = keys.map((k,i) => {
       const slot = `<div class="bk-slot">${matchBox(k)}</div>`;
       const spacer = i < keys.length-1 ? `<div class="bk-spacer"></div>` : '';
@@ -489,126 +557,135 @@ function buildBracket() {
     }).join('');
     return `<div class="bracket-col ${rnd}">
       <div class="bracket-col-label" style="background:${color}">${label}</div>
-      <div class="bk-col-inner" id="lcol_${rnd}">${inner}</div>
+      <div class="bk-col-inner">${inner}</div>
     </div>`;
   }
-
-  function rightCol(rnd, keys, colorKey) {
-    const color = KO_ROUND_COLORS[colorKey] || '#003A70';
-    const label = {r32:'Round of 32',r16:'Round of 16',qf:'Quarter-Finals',sf:'Semi-Finals'}[colorKey]||colorKey;
-    let inner = keys.map((k,i) => {
-      const slot = `<div class="bk-slot">${matchBox(k)}</div>`;
-      const spacer = i < keys.length-1 ? `<div class="bk-spacer"></div>` : '';
-      return slot+spacer;
-    }).join('');
-    return `<div class="bracket-col ${rnd}">
-      <div class="bracket-col-label" style="background:${color}">${label}</div>
-      <div class="bk-col-inner" id="rcol_${rnd}">${inner}</div>
-    </div>`;
-  }
-
-  const finH = koSlots['FINAL'].home() || 'TBD';
-  const finA = koSlots['FINAL'].away() || 'TBD';
-  const champ = koWinner('FINAL');
-  const third3 = koWinner('3RD');
-  const third3L = koSlots['3RD'].home() || '–';
-  const third3R = koSlots['3RD'].away() || '–';
-  const finWinner = koWinner('FINAL');
-
-  const center = `<div class="bracket-col center" id="bracket-center">
+ 
+  const r32Keys = R32.map(r=>`R32_${r[0]}`);
+  const r16Keys = R16.map(r=>`R16_${r[0]}`);
+  const qfKeys = QF.map(r=>`QF_${r[0]}`);
+  const sfKeys = SF.map(r=>`SF_${r[0]}`);
+ 
+  const finKey = `FINAL_${FINAL[0]}`;
+  const thirdKey = `THIRD_${THIRD[0]}`;
+ 
+  const finSl = koSlots[finKey];
+  const finH = finSl.home(), finA = finSl.away();
+  const champ = koWinner(finKey);
+ 
+  const thirdSl = koSlots[thirdKey];
+  const thirdH = thirdSl.home(), thirdA = thirdSl.away();
+  const thirdWinner = koWinner(thirdKey);
+ 
+  const center = `<div class="bracket-col center">
     <div class="bracket-col-label" style="background:${KO_ROUND_COLORS.final}">The Final</div>
     <div class="final-box">
-      <div class="final-label">THE FINAL</div>
-      <div class="final-date">Jul 19 &mdash; MetLife Stadium, NJ</div>
-      <div class="final-team" id="fin_home">${finH.startsWith('W ')||finH==='TBD'?`<span style="color:#2a3d54;font-style:italic">${finH}</span>`:finH}</div>
+      <div class="final-label">THE FINAL — M${FINAL[0]}</div>
+      <div class="final-date">${FINAL[1]} &mdash; ${FINAL[4]}</div>
+      <div class="final-team" id="fin_home">${finH.tbd?`<span style="color:#2a3d54;font-style:italic">${finH.text}</span>`:finH.text}</div>
       <div class="final-vs">vs</div>
-      <div class="final-team" id="fin_away">${finA.startsWith('W ')||finA==='TBD'?`<span style="color:#2a3d54;font-style:italic">${finA}</span>`:finA}</div>
+      <div class="final-team" id="fin_away">${finA.tbd?`<span style="color:#2a3d54;font-style:italic">${finA.text}</span>`:finA.text}</div>
     </div>
-    <div class="champion-box" id="champion-box">
+    <div class="champion-box">
       <div class="champion-label">World Champion</div>
       <div class="champion-name" id="champion-name">${champ || '—'}</div>
     </div>
     <div class="third-box">
-      <div class="third-label">3rd Place — Jul 18 — Hard Rock Stadium</div>
-      <div class="third-team" id="third-home">${third3L}</div>
+      <div class="third-label">3rd Place — M${THIRD[0]} — ${THIRD[1]} — ${THIRD[4]}</div>
+      <div class="third-team" id="third-home">${thirdH.text}</div>
       <div class="third-vs">vs</div>
-      <div class="third-team" id="third-away">${third3R}</div>
-      <div style="margin-top:6px;font-size:11px;color:#F5C518;font-weight:600" id="third-winner">${third3||''}</div>
+      <div class="third-team" id="third-away">${thirdA.text}</div>
+      <div style="margin-top:6px;font-size:11px;color:#F5C518;font-weight:600" id="third-winner">${thirdWinner||''}</div>
     </div>
   </div>`;
-
+ 
+  // Split each round into two halves for left/right of center
+  const half = arr => [arr.slice(0,Math.ceil(arr.length/2)), arr.slice(Math.ceil(arr.length/2))];
+  const [r32L,r32R] = half(r32Keys);
+  const [r16L,r16R] = half(r16Keys);
+  const [qfL,qfR] = half(qfKeys);
+  const [sfL,sfR] = half(sfKeys);
+ 
   b.innerHTML =
-    leftCol('r32',  ['R32_0','R32_1','R32_2','R32_3','R32_4','R32_5','R32_6','R32_7'],         'r32') +
-    leftCol('r16',  ['R16_0','R16_1','R16_2','R16_3'],                                          'r16') +
-    leftCol('qf',   ['QF_0','QF_1'],                                                             'qf')  +
-    leftCol('sf',   ['SF_0'],                                                                    'sf')  +
+    `<div class="bracket-col r32">
+      <div class="bracket-col-label" style="background:${KO_ROUND_COLORS.r32}">Round of 32</div>
+      <div class="bk-col-inner">${r32L.map((k,i)=>`<div class="bk-slot">${matchBox(k)}</div>${i<r32L.length-1?'<div class="bk-spacer"></div>':''}`).join('')}</div>
+    </div>` +
+    `<div class="bracket-col r16">
+      <div class="bracket-col-label" style="background:${KO_ROUND_COLORS.r16}">Round of 16</div>
+      <div class="bk-col-inner">${r16L.map((k,i)=>`<div class="bk-slot">${matchBox(k)}</div>${i<r16L.length-1?'<div class="bk-spacer"></div>':''}`).join('')}</div>
+    </div>` +
+    `<div class="bracket-col qf">
+      <div class="bracket-col-label" style="background:${KO_ROUND_COLORS.qf}">Quarter-Finals</div>
+      <div class="bk-col-inner">${qfL.map((k,i)=>`<div class="bk-slot">${matchBox(k)}</div>${i<qfL.length-1?'<div class="bk-spacer"></div>':''}`).join('')}</div>
+    </div>` +
+    `<div class="bracket-col sf">
+      <div class="bracket-col-label" style="background:${KO_ROUND_COLORS.sf}">Semi-Finals</div>
+      <div class="bk-col-inner">${sfL.map((k,i)=>`<div class="bk-slot">${matchBox(k)}</div>${i<sfL.length-1?'<div class="bk-spacer"></div>':''}`).join('')}</div>
+    </div>` +
     center +
-    rightCol('sf',  ['SF_1'],                                                                    'sf')  +
-    rightCol('qf',  ['QF_2','QF_3'],                                                             'qf')  +
-    rightCol('r16', ['R16_4','R16_5','R16_6','R16_7'],                                          'r16') +
-    rightCol('r32', ['R32_8','R32_9','R32_10','R32_11','R32_12','R32_13','R32_14','R32_15'],    'r32');
+    `<div class="bracket-col sf">
+      <div class="bracket-col-label" style="background:${KO_ROUND_COLORS.sf}">Semi-Finals</div>
+      <div class="bk-col-inner">${sfR.map((k,i)=>`<div class="bk-slot">${matchBox(k)}</div>${i<sfR.length-1?'<div class="bk-spacer"></div>':''}`).join('')}</div>
+    </div>` +
+    `<div class="bracket-col qf">
+      <div class="bracket-col-label" style="background:${KO_ROUND_COLORS.qf}">Quarter-Finals</div>
+      <div class="bk-col-inner">${qfR.map((k,i)=>`<div class="bk-slot">${matchBox(k)}</div>${i<qfR.length-1?'<div class="bk-spacer"></div>':''}`).join('')}</div>
+    </div>` +
+    `<div class="bracket-col r16">
+      <div class="bracket-col-label" style="background:${KO_ROUND_COLORS.r16}">Round of 16</div>
+      <div class="bk-col-inner">${r16R.map((k,i)=>`<div class="bk-slot">${matchBox(k)}</div>${i<r16R.length-1?'<div class="bk-spacer"></div>':''}`).join('')}</div>
+    </div>` +
+    `<div class="bracket-col r32">
+      <div class="bracket-col-label" style="background:${KO_ROUND_COLORS.r32}">Round of 32</div>
+      <div class="bk-col-inner">${r32R.map((k,i)=>`<div class="bk-slot">${matchBox(k)}</div>${i<r32R.length-1?'<div class="bk-spacer"></div>':''}`).join('')}</div>
+    </div>`;
 }
-
+ 
 function updateBracket() {
-  // Update each bracket match box
-  function upd(key) {
+  Object.keys(koSlots).forEach(key => {
     const el = document.getElementById(`bk_${key}`);
     if(!el) return;
     const sl = koSlots[key];
-    if(!sl) return;
-    const h = sl.home() || 'TBD', a = sl.away() || 'TBD';
-    const w = koWinner(key);
-    const isTbdH = h.startsWith('W ') || h.startsWith('Best') || h.startsWith('Loser') || h.startsWith('Winner') || h==='TBD';
-    const isTbdA = a.startsWith('W ') || a.startsWith('Best') || a.startsWith('Loser') || a.startsWith('Winner') || a==='TBD';
+    const h = sl.home(), a = sl.away();
     el.innerHTML = `
-      <div class="bk-team ${isTbdH?'tbd':''} ${w&&!isTbdH&&h&&w.includes(h)?'winner':''}">${h}</div>
-      <div class="bk-team ${isTbdA?'tbd':''} ${w&&!isTbdA&&a&&w.includes(a)?'winner':''}">${a}</div>`;
-  }
-
-  for(let i=0;i<16;i++) upd(`R32_${i}`);
-  for(let i=0;i<8;i++)  upd(`R16_${i}`);
-  for(let i=0;i<4;i++)  upd(`QF_${i}`);
-  upd('SF_0'); upd('SF_1');
-  upd('3RD'); upd('FINAL');
-
-  // Update final center
+      <div class="bk-team ${h.tbd?'tbd':''}">${h.text}</div>
+      <div class="bk-team ${a.tbd?'tbd':''}">${a.text}</div>`;
+  });
+ 
+  const finKey = `FINAL_${FINAL[0]}`;
+  const thirdKey = `THIRD_${THIRD[0]}`;
+  const finSl = koSlots[finKey];
   const fh = document.getElementById('fin_home');
   const fa = document.getElementById('fin_away');
+  if(fh){ const h=finSl.home(); fh.innerHTML = h.tbd?`<span style="color:#2a3d54;font-style:italic">${h.text}</span>`:h.text; }
+  if(fa){ const a=finSl.away(); fa.innerHTML = a.tbd?`<span style="color:#2a3d54;font-style:italic">${a.text}</span>`:a.text; }
   const cn = document.getElementById('champion-name');
-  const tw = document.getElementById('third-winner');
+  if(cn) cn.textContent = koWinner(finKey) || '—';
+ 
+  const thirdSl = koSlots[thirdKey];
   const th = document.getElementById('third-home');
   const ta = document.getElementById('third-away');
-
-  if(fh) {
-    const h = koSlots['FINAL'].home() || '–';
-    const isTbd = h.startsWith('W ')||h==='TBD'||h==='–';
-    fh.innerHTML = isTbd ? `<span style="color:#2a3d54;font-style:italic">${h}</span>` : h;
-  }
-  if(fa) {
-    const a = koSlots['FINAL'].away() || '–';
-    const isTbd = a.startsWith('W ')||a==='TBD'||a==='–';
-    fa.innerHTML = isTbd ? `<span style="color:#2a3d54;font-style:italic">${a}</span>` : a;
-  }
-  if(cn) cn.textContent = koWinner('FINAL') || '—';
-  if(th) th.textContent = koSlots['3RD'].home() || '–';
-  if(ta) ta.textContent = koSlots['3RD'].away() || '–';
-  if(tw) tw.textContent = koWinner('3RD') || '';
+  const tw = document.getElementById('third-winner');
+  if(th) th.textContent = thirdSl.home().text;
+  if(ta) ta.textContent = thirdSl.away().text;
+  if(tw) tw.textContent = koWinner(thirdKey) || '';
 }
-
+ 
 function updateAll() {
   updateKOTeamNames();
   updateStandings();
+  updateThirdPlaceTable();
   updateBracket();
 }
-
+ 
 function showTab(name) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
   document.getElementById(`tab-${name}`).classList.add('active');
   event.target.classList.add('active');
 }
-
-// Init
+ 
 buildLeftPanel();
 buildStandings();
 buildBracket();
@@ -616,3 +693,6 @@ updateAll();
 </script>
 </body>
 </html>
+ 
+
+
