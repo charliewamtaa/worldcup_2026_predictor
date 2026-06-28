@@ -1,1 +1,41 @@
-the file is going here
+name: Update live scores
+
+on:
+  schedule:
+    # Every 5 minutes is the GitHub minimum; runs can be delayed a few minutes
+    # under load, which is fine for a predictor. Tighten/loosen as you like.
+    - cron: "*/5 * * * *"
+  workflow_dispatch:        # adds a manual "Run workflow" button for testing
+
+# let the job commit the refreshed scores.json back to the repo
+permissions:
+  contents: write
+
+# never let two runs overlap
+concurrency:
+  group: live-scores
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch scores
+        env:
+          API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
+          PROVIDER: football-data        # football-data | api-football | worldcup26
+        run: node scripts/fetch-scores.mjs
+
+      - name: Commit if changed
+        run: |
+          git config user.name "score-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add scores.json
+          git diff --staged --quiet || git commit -m "Update live scores [skip ci]"
+          git push
